@@ -6,13 +6,13 @@ Ruby on Rails (or just `“Rails”` for short) is a web development framework w
 
 ```scss
 //TYPE IN TERMINAL
-rails new app_name 
+rails new hello_app
 or 
-rails new SchoolApp --database=postgresql
+rails new hello_app --database=postgresql
 ```
 ```scss
 //TYPE IN TERMINAL
-cd name_of_your_app
+cd hello_app
 ```
 ```scss
 //TYPE IN TERMINAL
@@ -100,3 +100,42 @@ $ git add -A
 // TYPE IN TERMINAL
 $ git commit -a -m "Improve the README file"
 ```
+> git commit provides the `-a flag` as a shortcut for the (very common) case of committing all modifications to existing files
+
+- Merge
+
+```scss
+// TYPE IN TERMINAL
+$ git checkout master
+```
+> Switch to branch master
+```scss
+// TYPE IN TERMINAL
+$ git merge modify-README
+```
+> After you’ve merged in the changes, you can tidy up your branches by deleting the topic branch using git branch -d if you’re done with it
+```scss
+// TYPE IN TERMINAL
+$ git branch -d modify-README
+```
+> This step is optional, and in fact it’s quite common to leave the topic branch intact. This way you can switch back and forth between the topic and master branches.
+```scss
+//= DONT DO THIS UNLESS YOU MESS UP =//
+// TYPE IN TERMINAL 
+$ git checkout -b topic-branch
+$ <really mess up the branch>
+$ git add -A
+$ git commit -a -m "Make major mistake"
+$ git checkout master
+$ git branch -D topic-branch
+```
+> Unlike the -d flag, the -D flag will delete the branch even though we haven’t merged in the changes.
+
+- Push
+
+```scss
+// TYPE IN TERMINAL
+$ git push
+```
+>  Since we have already done one push on most systems we can omit origin master, and simply run git push:
+---
