@@ -1,6 +1,10 @@
 # Ruby on Rails 
 ##### LEARN WEB DEVELOPMENT WITH RAILS - *by Michael Hartl*
 
+`I dont own any of the content of this. I'm just using this for educational purposes to teach myself about ruby on rails.`
+
+To learn more about this please go to this link [Ruby on Rails Tutorial by Michael Hartl](https://www.railstutorial.org/book)
+
 ## INTRODUCTION
 Ruby on Rails (or just `“Rails”` for short) is a web development framework written in the Ruby programming language.
 
