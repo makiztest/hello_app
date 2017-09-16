@@ -153,7 +153,9 @@ $ git push
 
 ---
 
-## DEPLOYING
+## Deploying in `Heroku`
+<details>
+<summary>SEE DROPDOWN: TO KNOW HOW TO DEPLOY IN HEROKU</summary>
 
 ### `Heroku setup`
 > Heroku uses the PostgreSQL database we need to add the `pg gem` in the production environment to allow Rails to talk to Postgres.
@@ -190,5 +192,37 @@ $ bundle install --without production
 > Because the only gem added is restricted to a production environment, right now this command doesn’t actually install any additional local gems, but it’s needed to update `Gemfile.lock` with the `pg gem`
 ```scss
 // TYPE IN TERMINAL
-git commit -a -m "Update Gemfile for Heroku"
+$ git commit -a -m "Update Gemfile for Heroku"
 ```
+In your terminal
+```scss
+// TYPE IN TERMINAL
+$ heroku version
+```
+Once you’ve verified that the Heroku command-line interface is installed, use the heroku command to log in and add your SSH key
+```scss
+// TYPE IN TERMINAL
+$ heroku login
+$ heroku keys:add
+```
+```scss
+// TYPE IN TERMINAL
+$ heroku create
+```
+> Finally, use the heroku create command to create a place on the Heroku servers for the sample app to live
+## Heroku deployment
+To deploy the application, the first step is to use Git to push the master branch up to Heroku
+```scss
+// TYPE IN TERMINAL
+$ git push heroku master
+```
+Renaming the application for heroku
+```scss
+// TYPE IN TERMINAL
+$ heroku rename "name of your app"
+```
+> Create a random subdomain to prevent someone visiting your app. give this only if its ready for review.
+
+</details>
+
+# THE END
