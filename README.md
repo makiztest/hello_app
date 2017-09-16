@@ -18,7 +18,10 @@ cd hello_app
 //TYPE IN TERMINAL
 bundle install
 ```
+---
 ## Model-View-Controller (MVC)
+<details>
+<summary>SEE DROPDOWN: TO KNOW MORE ABOUT MVC</summary>
 
 This is a hint that Rails follows the model-view-controller (MVC) architectural pattern, which enforces a separation between the data in the application
 
@@ -31,6 +34,10 @@ Which is a template that gets converted to `HTML and sent back to the browser`.
 `The controller interacts with a model`, which is a Ruby object that represents an element of the site (such as a user) and is `in charge of communicating with the database`. 
 
 After invoking the model, the controller then renders the view and returns the complete web page to the browser as HTML.
+
+</details>
+
+---
 ```rb
 # In app/controllers/application_controller.rb
 ...
@@ -55,6 +62,9 @@ root 'application#hello'
 ```
 ---
 ## First-time repository setup - `Github`
+<details>
+<summary>SEE DROPDOWN: TO KNOW MORE ABOUT GITHUB REPOSITORY</summary>
+
 - The first step is to navigate to the root directory of the first app and initialize a new repository:
 ```scss
 // TYPE IN TERMINAL
@@ -137,5 +147,48 @@ $ git branch -D topic-branch
 // TYPE IN TERMINAL
 $ git push
 ```
->  Since we have already done one push on most systems we can omit origin master, and simply run git push:
+>  Since we have already done one push on most systems we can omit origin master, and simply run git push:>
+
+</details>
+
 ---
+
+## DEPLOYING
+
+### `Heroku setup`
+> Heroku uses the PostgreSQL database we need to add the `pg gem` in the production environment to allow Rails to talk to Postgres.
+```rb
+#In /Gemfile Type
+...
+
+group :production do
+  gem 'pg', '0.21.0'
+end
+
+...
+```
+```rb
+#In /Gemfile Type
+...
+
+#group :development, :test do
+  gem 'sqlite3', '1.3.13'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  #gem 'capybara', '~> 2.13'
+  #gem 'selenium-webdriver'
+#end
+
+...
+```
+> This command make sqlite3 gem from being included in a production environment, since SQLite isn’t supported at Heroku
+
+```scss
+// TYPE IN TERMINAL
+$ bundle install --without production
+```
+- To prepare the system for deployment to production, we run bundle install with a special flag to prevent the local installation of any production gems (which in this case consists of the pg gem)
+> Because the only gem added is restricted to a production environment, right now this command doesn’t actually install any additional local gems, but it’s needed to update `Gemfile.lock` with the `pg gem`
+```scss
+// TYPE IN TERMINAL
+git commit -a -m "Update Gemfile for Heroku"
+```
